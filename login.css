@@ -84,3 +84,24 @@ button {
 .link:hover {
   color: #ccc;
 }
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red; 
+}
+
+#message {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.login-input {
+  display: flex;
+  justify-content: center;
+}
+
+.login-input input {
+  margin: auto 0;
+}

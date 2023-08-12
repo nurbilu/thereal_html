@@ -1,44 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="login.css">
-</head>
-<body>
-    <!DOCTYPE html>
 <html>
 <head>
   <title>Login Page</title>
+  
+  <link rel="stylesheet" href="login.css">
 </head>
+
 <body>
-  <form action="/login" method="post">
-    <h1>Login</h1>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-    <button type="submit">Login</button>
-  </form>
+
+  <div class="login-container">
+
+    <div class="login-header">
+      <h1>Login</h1> 
+    </div>
+
+    <form id="loginForm">
+    
+      <div class="login-body">
+      
+        <div class="login-input">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        
+        <div class="login-input">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        
+      </div>
+      
+      <div class="login-button">
+        <button type="submit">Login</button>
+      </div>
+      
+    </form>
+    
+    <div id="message"></div>
+
+  </div>
+
   <script>
-    // Check if the username and password are correct.
-    function checkLogin() {
+
+    const form = document.getElementById("loginForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function(e) {
+    
+      e.preventDefault();
+    
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
-      const correctUsername = "admin";
-      const correctPassword = "password";
-      if (username === correctUsername && password === correctPassword) {
-        window.location.href = "https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-jumbo.jpg?quality=75&auto=webp";
+    
+      if (username === "admin" && password === "password") {
+        message.textContent = "Correct!";
+        message.classList.remove("incorrect");
+        message.classList.add("correct");
       } else {
-        alert("Incorrect username or password.");
+        message.textContent = "Incorrect!";
+        message.classList.remove("correct");
+        message.classList.add("incorrect");
       }
-    }
-    // Add an event listener to the login button.
-    document.getElementById("login").addEventListener("click", checkLogin);
+    
+    });
+
   </script>
-</body>
-</html>
 
 </body>
 </html>
